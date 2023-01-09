@@ -44,7 +44,7 @@ jobs:
         uses: wzieba/AppCenter-Github-Action@v1
         with:
           appName: tintomathew/ComposeApp
-          token: ${{ secrets.SECRETKEY_APP_CENTER }}
+          token: ${{ secrets.SECRETKEY_APP_CENTER_COMPOSE }}
           group: Testers
           file: app/build/outputs/apk/debug/app-debug.apk
           notifyTesters: true
