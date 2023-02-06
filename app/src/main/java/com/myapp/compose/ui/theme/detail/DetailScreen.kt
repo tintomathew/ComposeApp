@@ -14,16 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun DetailScreen(
-    navController: NavHostController,
-    imageUrl: String = "http://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/110905.gif"
-) {
+fun DetailScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
