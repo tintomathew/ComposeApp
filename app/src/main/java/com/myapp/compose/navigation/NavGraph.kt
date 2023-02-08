@@ -2,6 +2,7 @@ package com.myapp.compose.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -21,4 +22,8 @@ fun NavGraph() {
             DetailScreen()
         }
     }
+}
+
+fun onItemClick(navController: NavHostController) {
+    navController.navigate(Screens.Detail.route)
 }

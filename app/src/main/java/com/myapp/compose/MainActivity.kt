@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -24,12 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.dp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.myapp.compose.navigation.NavGraph
-import com.myapp.compose.ui.theme.ComposeAppTheme
+import com.myapp.compose.navigation.onItemClick
 import com.myapp.compose.ui.theme.components.AppItems
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -66,9 +63,7 @@ fun SearchComponent(viewModel: MainViewModel, navController: NavHostController) 
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null)},
         )
         AppItems(
-            state,
-            navController
-        )
-
+            state
+        ) { onItemClick(navController) }
     }
 }
