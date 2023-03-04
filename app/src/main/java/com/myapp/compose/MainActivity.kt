@@ -1,8 +1,10 @@
 package com.myapp.compose
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -27,16 +29,22 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import com.myapp.compose.navigation.NavGraph
 import com.myapp.compose.navigation.onItemClick
+import com.myapp.compose.ui.theme.ComposeAppTheme
 import com.myapp.compose.ui.theme.components.AppItems
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContent {
-            NavGraph()
+            ComposeAppTheme() {
+                NavGraph()
+//                AlignmentLearnings()()
+                //ScaffoldLearnings()
+            }
         }
     }
 }
@@ -48,7 +56,7 @@ fun SearchComponent(viewModel: MainViewModel, navController: NavHostController) 
     val state by viewModel.state.collectAsState()
     var text by remember { mutableStateOf(TextFieldValue("")) }
 
-    Column() {
+    Column {
         TextField(
             value = text,
             onValueChange = {
@@ -62,6 +70,7 @@ fun SearchComponent(viewModel: MainViewModel, navController: NavHostController) 
             style = MaterialTheme.typography.bodySmall) },
             leadingIcon = { Icon(Icons.Default.Search, contentDescription = null)},
         )
+//        NavGraph()
         AppItems(
             state
         ) { onItemClick(navController) }

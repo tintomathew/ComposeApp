@@ -1,11 +1,14 @@
 package com.myapp.compose.ui.theme.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -24,7 +27,7 @@ import com.myapp.compose.model.Restaurant
 @Composable
 fun AppItems(
     names: List<Restaurant>,
-    onItemClick:()-> Unit
+    onItemClick: () -> Unit
 ) {
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
@@ -38,14 +41,16 @@ fun AppItems(
 }
 
 @Composable
-fun RestaurantCard(item: String, onItemClick:()-> Unit) {
+fun RestaurantCard(item: String, onItemClick: () -> Unit) {
+    val expanded = remember { mutableStateOf(false) }
+    val radius = 8.dp
     Surface(
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier
             .padding(vertical = 2.dp, horizontal = 2.dp)
-            .fillMaxWidth()
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(topStart = radius.value)
     ) {
-        val expanded = remember { mutableStateOf(false) }
         Row(
             modifier = Modifier
                 .padding(vertical = 10.dp, horizontal = 10.dp),
@@ -60,11 +65,14 @@ fun RestaurantCard(item: String, onItemClick:()-> Unit) {
             )
             ElevatedButton(
                 modifier = Modifier.weight(.4f),
-                onClick = onItemClick,
+                onClick ={
+                    //expanded.value = true
+                    onItemClick.invoke()
+                         },
             ) {
                 Text(
-                    text = if (expanded.value) stringResource(id = R.string.show_less) else stringResource(
-                        id = R.string.show_more
+                    text = stringResource(
+                        id = R.string.get_details
                     ),
                     style = MaterialTheme.typography.bodySmall
                 )
