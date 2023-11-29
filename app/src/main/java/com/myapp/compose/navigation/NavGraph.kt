@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.myapp.compose.MainViewModel
 import com.myapp.compose.SearchComponent
+import com.myapp.compose.ui.theme.bottomsheet.NewModalBottomSheet
 import com.myapp.compose.ui.theme.detail.DetailScreen
 import com.myapp.compose.ui.theme.learnings.LearningScreen
 
@@ -17,7 +18,7 @@ import com.myapp.compose.ui.theme.learnings.LearningScreen
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
-    NavHost(navController= navController, startDestination= Screens.Home.route) {
+    NavHost(navController= navController, startDestination= Screens.NewModalBottomSheet.route) {
         composable(Screens.Home.route){
             SearchComponent(viewModel = hiltViewModel<MainViewModel>(), navController)
         }
@@ -28,6 +29,10 @@ fun NavGraph() {
 
         composable(Screens.Learnings.route){
             LearningScreen()
+        }
+
+        composable(Screens.NewModalBottomSheet.route){
+            NewModalBottomSheet()
         }
     }
 }
