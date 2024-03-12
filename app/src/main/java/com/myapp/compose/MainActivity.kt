@@ -42,8 +42,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeAppTheme() {
                 NavGraph()
-
-
 //                AlignmentLearnings()()
                 //ScaffoldLearnings()
             }
