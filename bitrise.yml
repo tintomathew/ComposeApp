@@ -6,6 +6,9 @@ workflows:
     summary: Run your Android unit tests and create an APK file to install your app on a device or share it with your team.
     description: The workflow will first clone your Git repository, install Android tools, set the project's version code based on the build number, run Android lint and unit tests, build the project's APK file and save it.
     steps:
+      - set-java-version@1:
+          inputs:
+            - set_java_version: 17
       - script@1:
           title: Collect Gradle profile report
           inputs:
@@ -52,7 +55,9 @@ workflows:
     summary: Run your Android unit tests and get the test report.
     description: The workflow will first clone your Git repository, cache your Gradle dependencies, install Android tools, run your Android unit tests and save the test report.
     steps:
-      - set-java-version@1: { }
+      - set-java-version@1:
+          inputs:
+            - set_java_version: 17
       - activate-ssh-key@4: { }
       - git-clone@8: { }
       - restore-gradle-cache@1: { }
