@@ -51,6 +51,7 @@ workflows:
       - sign-apk@1:
           run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
       - deploy-to-bitrise-io@2: { }
+
 meta:
   bitrise.io:
     stack: linux-docker-android-20.04
