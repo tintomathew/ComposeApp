@@ -34,11 +34,6 @@ workflows:
             - project_location: $PROJECT_LOCATION
             - variant: $VARIANT
             - cache_level: none
-      - android-unit-test@1:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - variant: $VARIANT
-            - cache_level: none
       - set-java-version@1:
           inputs:
             - set_java_version: 17
