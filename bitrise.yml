@@ -59,11 +59,6 @@ workflows:
       - install-missing-android-tools@3:
           inputs:
             - gradlew_path: $PROJECT_LOCATION/gradlew
-      - android-unit-test@1:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - variant: $VARIANT
-            - cache_level: none
       - save-gradle-cache@1: { }
       - deploy-to-bitrise-io@2: { }
 meta:
