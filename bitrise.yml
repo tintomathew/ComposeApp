@@ -6,6 +6,16 @@ workflows:
     summary: Run your Android unit tests and create an APK file to install your app on a device or share it with your team.
     description: The workflow will first clone your Git repository, install Android tools, set the project's version code based on the build number, run Android lint and unit tests, build the project's APK file and save it.
     steps:
+      - remote-script-runner@2: {
+        #!/bin/bash
+                                  set -ex
+
+                                  add-apt-repository -y ppa:openjdk-r/ppa
+                                  apt-get update -qq
+                                  apt-get install -y openjdk-17-jdk
+                                  update-java-alternatives -s /usr/lib/jvm/java-1.17.0-openjdk-amd64
+                                  echo "done"
+      }
       - set-java-version@1:
           inputs:
             - set_java_version: 17
@@ -76,7 +86,7 @@ app:
         steps:
           - set-java-version@1:
               inputs:
-                - set_java_version: '17'
+                - set_java_version: "17"
 trigger_map:
   - push_branch: main
     workflow: run_tests
