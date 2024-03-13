@@ -72,6 +72,11 @@ app:
     - opts:
         is_expand: false
       VARIANT: ""
+    - primary:
+        steps:
+          - set-java-version@1:
+              inputs:
+                - set_java_version: '17'
 trigger_map:
   - push_branch: main
     workflow: run_tests
