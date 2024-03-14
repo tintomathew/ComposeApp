@@ -9,8 +9,8 @@ workflows:
       - set-java-version@1:
           inputs:
             - set_java_version: 17
-      - activate-ssh-key@4: { }
-      - git-clone@8: { }
+      - activate-ssh-key@4: {}
+      - git-clone@8: {}
       - install-missing-android-tools@3:
           inputs:
             - gradlew_path: $PROJECT_LOCATION/gradlew
@@ -38,7 +38,12 @@ workflows:
             - cache_level: none
       - sign-apk@1:
           run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
-      - deploy-to-bitrise-io@2: { }
+      - deploy-to-bitrise-io@2: {}
+      - slack@4:
+          is_always_run: false
+          inputs:
+            - api_token: $SLACK_VARIABLE
+            - webhook_url: $SLACK_VARIABLE
   run_tests:
     summary: Run your Android unit tests and get the test report.
     description: The workflow will first clone your Git repository, cache your Gradle dependencies, install Android tools, run your Android unit tests and save the test report.
@@ -46,9 +51,9 @@ workflows:
       - set-java-version@1:
           inputs:
             - set_java_version: 17
-      - activate-ssh-key@4: { }
-      - git-clone@8: { }
-      - restore-gradle-cache@1: { }
+      - activate-ssh-key@4: {}
+      - git-clone@8: {}
+      - restore-gradle-cache@1: {}
       - install-missing-android-tools@3:
           inputs:
             - gradlew_path: $PROJECT_LOCATION/gradlew
@@ -57,8 +62,8 @@ workflows:
             - project_location: $PROJECT_LOCATION
             - variant: $VARIANT
             - cache_level: none
-      - save-gradle-cache@1: { }
-      - deploy-to-bitrise-io@2: { }
+      - save-gradle-cache@1: {}
+      - deploy-to-bitrise-io@2: {}
 meta:
   bitrise.io:
     stack: linux-docker-android-20.04
