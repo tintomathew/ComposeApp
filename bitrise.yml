@@ -40,7 +40,7 @@ workflows:
           run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
       - deploy-to-bitrise-io@2: {}
       - slack@4:
-          is_always_run: true
+          is_always_run: false
           inputs:
             - webhook_url: $SLACK_VARIABLE
   run_tests:
