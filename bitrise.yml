@@ -42,7 +42,6 @@ workflows:
       - slack@4:
           is_always_run: true
           inputs:
-            - api_token: $SLACK_VARIABLE
             - webhook_url: $SLACK_VARIABLE
   run_tests:
     summary: Run your Android unit tests and get the test report.
