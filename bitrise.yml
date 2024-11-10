@@ -8,7 +8,7 @@ workflows:
     steps:
       - set-java-version@1:
           inputs:
-            - set_java_version: 17
+            - set_java_version: 18
       - activate-ssh-key@4: {}
       - git-clone@8: {}
       - install-missing-android-tools@3:
@@ -29,7 +29,7 @@ workflows:
             - cache_level: none
       - set-java-version@1:
           inputs:
-            - set_java_version: 17
+            - set_java_version: 18
       - android-build@1:
           inputs:
             - project_location: $PROJECT_LOCATION
@@ -49,7 +49,7 @@ workflows:
     steps:
       - set-java-version@1:
           inputs:
-            - set_java_version: 17
+            - set_java_version: 18
       - activate-ssh-key@4: {}
       - git-clone@8: {}
       - restore-gradle-cache@1: {}
