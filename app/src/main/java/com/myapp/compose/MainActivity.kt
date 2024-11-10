@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
             ComposeAppTheme() {
                 NavGraph()
 //                AlignmentLearnings()()
-                //ScaffoldLearnings()
+//                ScaffoldLearnings()
             }
         }
     }
