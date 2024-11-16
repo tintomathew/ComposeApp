@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.android.compose.screenshot'
 }
 
 android {
@@ -102,6 +103,5 @@ dependencies {
     implementation("io.coil-kt:coil-gif:2.2.2")
 
     // Screenshot testing
-    screenshotTestImplementation 'androidx.compose.ui:ui-tooling-preview:1.7.5'
-    screenshotTestImplementation 'com.android.compose.screenshot:screenshot-testing:0.0.1-alpha01'
+    screenshotTestImplementation 'androidx.compose.ui:ui-tooling'
 }
