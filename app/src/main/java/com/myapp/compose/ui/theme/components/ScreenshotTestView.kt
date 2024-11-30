@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 fun ScreenshotTestView() {
     Column(modifier = Modifier.background(Color.Green).padding(24.dp)) {
         Text(text = "Welcome")
+        Text(text = "Check Slack message")
         Text(text = "Thanks for using my repo")
     }
 }
