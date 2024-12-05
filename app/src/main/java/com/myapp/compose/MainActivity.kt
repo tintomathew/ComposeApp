@@ -56,6 +56,7 @@ fun SearchComponent(viewModel: MainViewModel, navController: NavHostController) 
     val state by viewModel.state.collectAsState()
     var text by remember { mutableStateOf(TextFieldValue("")) }
 
+
     Column {
         TextField(
             value = text,
