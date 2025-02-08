@@ -35,6 +35,11 @@ jobs:
       - name: build release
         run: ./gradlew assembleRelease
 
+      - name: Install Git LFS
+        run: |
+            git lfs install
+            git lfs pull
+
       - name: screenshot test
         run: ./gradlew validateDebugScreenshotTest
 
