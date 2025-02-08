@@ -31,6 +31,7 @@ import com.myapp.compose.navigation.NavGraph
 import com.myapp.compose.navigation.onItemClick
 import com.myapp.compose.ui.theme.ComposeAppTheme
 import com.myapp.compose.ui.theme.components.AppItems
+import com.myapp.compose.ui.theme.learnings.ScaffoldLearnings
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,9 +42,9 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             ComposeAppTheme() {
-                NavGraph()
+//                NavGraph()
 //                AlignmentLearnings()()
-//                ScaffoldLearnings()
+                ScaffoldLearnings()
             }
         }
     }
