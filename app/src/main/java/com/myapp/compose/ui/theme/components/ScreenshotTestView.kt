@@ -19,3 +19,11 @@ fun ScreenshotTestView() {
         Text(text = "Thanks for using my repo")
     }
 }
+
+@Preview
+@Composable
+fun ScreenshotTestViewNew() {
+    Column(modifier = Modifier.background(Color.Red).padding(24.dp)) {
+        Text(text = "Thanks for using my repo")
+    }
+}
