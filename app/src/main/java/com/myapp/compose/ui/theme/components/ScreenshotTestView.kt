@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 @Preview
 @Composable
 fun ScreenshotTestView() {
-    Column(modifier = Modifier.background(Color.Yellow).padding(24.dp)) {
+    Column(modifier = Modifier.background(Color.Green).padding(24.dp)) {
         Text(text = "Welcome")
         Text(text = "Check Slack message")
         Text(text = "Thanks for using my repo")
