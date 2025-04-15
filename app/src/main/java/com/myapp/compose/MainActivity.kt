@@ -28,6 +28,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
 import com.myapp.compose.navigation.NavGraph
+import com.myapp.compose.navigation.Screens
 import com.myapp.compose.navigation.onItemClick
 import com.myapp.compose.ui.theme.ComposeAppTheme
 import com.myapp.compose.ui.theme.components.AppItems
@@ -42,9 +43,9 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             ComposeAppTheme() {
-//                NavGraph()
+                NavGraph()
 //                AlignmentLearnings()()
-                ScaffoldLearnings()
+//                ScaffoldLearnings()
             }
         }
     }
@@ -75,6 +76,6 @@ fun SearchComponent(viewModel: MainViewModel, navController: NavHostController) 
 //        NavGraph()
         AppItems(
             state
-        ) { onItemClick(navController) }
+        ) { onItemClick(navController, Screens.Home) }
     }
 }
