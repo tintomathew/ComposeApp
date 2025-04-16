@@ -1,7 +1,7 @@
-package com.myapp.compose.di
+package com.example.core.di
 
-import com.myapp.compose.repository.RestaurantRepo
-import com.myapp.compose.service.RestaurantApiService
+import com.example.core.di.repository.RestaurantRepo
+import com.example.core.di.service.RestaurantApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

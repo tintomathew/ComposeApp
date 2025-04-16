@@ -1,9 +1,8 @@
-package com.myapp.compose.di;
+package com.example.core.di;
 
 
+import com.example.core.di.service.RestaurantApiService
 import com.google.gson.GsonBuilder
-import com.myapp.compose.service.RestaurantApiService
-
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

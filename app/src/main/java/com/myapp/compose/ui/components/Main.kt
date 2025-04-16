@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.myapp.compose.R
-import com.myapp.compose.model.Restaurant
+import com.example.core.di.model.Restaurant
 
 @Composable
 fun AppItems(

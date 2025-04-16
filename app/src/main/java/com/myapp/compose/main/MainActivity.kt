@@ -7,14 +7,18 @@ import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -44,8 +48,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeAppTheme() {
                 NavGraph()
-//                AlignmentLearnings()()
-//                ScaffoldLearnings()
             }
         }
     }
@@ -58,24 +60,41 @@ fun SearchComponent(viewModel: MainViewModel, navController: NavHostController) 
     val state by viewModel.state.collectAsState()
     var text by remember { mutableStateOf(TextFieldValue("")) }
 
-
-    Column {
-        TextField(
-            value = text,
-            onValueChange = {
-                text = it
-                viewModel.getRestaurants(text.text)
-            },
-            Modifier
-                .background(color = Color.Transparent)
-                .fillMaxWidth(),
-            placeholder = { Text(text = stringResource(R.string.search_text),
-            style = MaterialTheme.typography.bodySmall) },
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = null)},
-        )
-//        NavGraph()
-        AppItems(
-            state
-        ) { onItemClick(navController, Screens.Home) }
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = {
+                    Text(
+                        text = "Restaurants"
+                    )
+                }
+            )
+        }
+    ) { contentPadding ->
+        Column(Modifier
+            .background(Color.White)
+            .fillMaxSize()
+            .padding(contentPadding)) {
+            TextField(
+                value = text,
+                onValueChange = {
+                    text = it
+                    viewModel.getRestaurants(text.text)
+                },
+                Modifier
+                    .background(color = Color.Transparent)
+                    .fillMaxWidth(),
+                placeholder = {
+                    Text(
+                        text = stringResource(R.string.search_text),
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                },
+                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+            )
+            AppItems(
+                state
+            ) { onItemClick(navController, Screens.Home) }
+        }
     }
 }

@@ -20,7 +20,7 @@ import com.myapp.compose.ui.screens.learnings.LearningScreen
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
-    NavHost(navController= navController, startDestination= Screens.Detail.route) {
+    NavHost(navController= navController, startDestination= Screens.Home.route) {
         composable(Screens.Home.route){
             SearchComponent(viewModel = hiltViewModel<MainViewModel>(), navController)
         }
