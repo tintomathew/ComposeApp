@@ -1,4 +1,4 @@
-package com.myapp.compose.ui.theme.learnings.graph
+package com.myapp.compose.ui.screens.learnings.graph
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

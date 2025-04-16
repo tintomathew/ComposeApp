@@ -1,4 +1,4 @@
-package com.myapp.compose.ui.theme.detail
+package com.myapp.compose.ui.screens.detail
 
 import android.os.Build.VERSION.SDK_INT
 import androidx.compose.foundation.Image
@@ -27,12 +27,13 @@ import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.request.ImageRequest
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.myapp.compose.main.MainViewModel
 import com.myapp.compose.navigation.Screens
 import com.myapp.compose.navigation.onItemClick
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun DetailScreen(navController: NavHostController) {
+fun DetailScreen(mainViewModel: MainViewModel, navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -46,6 +47,7 @@ fun DetailScreen(navController: NavHostController) {
 //            contentDescription = "",
 //            modifier = Modifier.padding(24.dp),
 //        )
+        mainViewModel.getStringResource()
         GifImage()
         Row(
             modifier = Modifier

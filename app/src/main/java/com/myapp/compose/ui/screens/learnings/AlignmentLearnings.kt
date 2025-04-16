@@ -1,4 +1,4 @@
-package com.myapp.compose.ui.theme.learnings
+package com.myapp.compose.ui.screens.learnings
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

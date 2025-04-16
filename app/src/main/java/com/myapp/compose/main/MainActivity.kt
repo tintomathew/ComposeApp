@@ -1,4 +1,4 @@
-package com.myapp.compose
+package com.myapp.compose.main
 
 import android.os.Build
 import android.os.Bundle
@@ -27,12 +27,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavHostController
+import com.myapp.compose.R
 import com.myapp.compose.navigation.NavGraph
 import com.myapp.compose.navigation.Screens
 import com.myapp.compose.navigation.onItemClick
 import com.myapp.compose.ui.theme.ComposeAppTheme
-import com.myapp.compose.ui.theme.components.AppItems
-import com.myapp.compose.ui.theme.learnings.ScaffoldLearnings
+import com.myapp.compose.ui.components.AppItems
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

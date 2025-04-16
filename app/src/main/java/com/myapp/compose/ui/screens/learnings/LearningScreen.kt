@@ -1,10 +1,9 @@
-package com.myapp.compose.ui.theme.learnings
+package com.myapp.compose.ui.screens.learnings
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
-import com.myapp.compose.ui.theme.learnings.graph.Graphbackground
-import com.myapp.compose.ui.theme.learnings.graph.MyOwnGraph
+import com.myapp.compose.ui.screens.learnings.graph.Graphbackground
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable

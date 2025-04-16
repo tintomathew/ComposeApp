@@ -9,11 +9,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.feature_news.initialscreen.InitialScreen
-import com.myapp.compose.MainViewModel
-import com.myapp.compose.SearchComponent
-import com.myapp.compose.ui.theme.bottomsheet.NewModalBottomSheet
-import com.myapp.compose.ui.theme.detail.DetailScreen
-import com.myapp.compose.ui.theme.learnings.LearningScreen
+import com.example.feature_news.initialscreen.InitialViewModel
+import com.myapp.compose.main.MainViewModel
+import com.myapp.compose.main.SearchComponent
+import com.myapp.compose.ui.screens.bottomsheet.NewModalBottomSheet
+import com.myapp.compose.ui.screens.detail.DetailScreen
+import com.myapp.compose.ui.screens.learnings.LearningScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -25,7 +26,7 @@ fun NavGraph() {
         }
 
         composable(Screens.Detail.route){
-            DetailScreen(navController)
+            DetailScreen(hiltViewModel<MainViewModel>(), navController)
         }
 
         composable(Screens.Learnings.route){
@@ -37,7 +38,7 @@ fun NavGraph() {
         }
 
         composable(Screens.InitialScreen.route){
-            InitialScreen(navController)
+            InitialScreen(navController,  hiltViewModel<InitialViewModel>())
         }
     }
 }

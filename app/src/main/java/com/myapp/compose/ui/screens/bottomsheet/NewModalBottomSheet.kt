@@ -1,4 +1,4 @@
-package com.myapp.compose.ui.theme.bottomsheet
+package com.myapp.compose.ui.screens.bottomsheet
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

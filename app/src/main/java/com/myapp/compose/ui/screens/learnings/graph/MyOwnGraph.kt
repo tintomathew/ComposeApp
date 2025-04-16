@@ -1,4 +1,4 @@
-package com.myapp.compose.ui.theme.learnings.graph
+package com.myapp.compose.ui.screens.learnings.graph
 
 import android.graphics.Paint
 import android.util.Log
