@@ -1,7 +1,7 @@
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.myapp.compose.ui.theme.ComposeAppTheme
-import com.myapp.compose.ui.components.ScreenshotTestViewNew
+import com.myapp.compose.ui.views.ScreenshotTestViewNew
 
 class NewScreenshot {
 

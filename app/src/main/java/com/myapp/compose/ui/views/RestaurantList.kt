@@ -1,4 +1,4 @@
-package com.myapp.compose.ui.components
+package com.myapp.compose.ui.views
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -23,7 +23,7 @@ import com.myapp.compose.R
 import com.example.core.di.model.Restaurant
 
 @Composable
-fun AppItems(
+fun RestaurantList(
     names: List<Restaurant>,
     onItemClick: () -> Unit
 ) {

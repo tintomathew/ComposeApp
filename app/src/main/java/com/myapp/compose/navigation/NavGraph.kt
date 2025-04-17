@@ -11,18 +11,18 @@ import androidx.navigation.compose.rememberNavController
 import com.example.feature_news.initialscreen.InitialScreen
 import com.example.feature_news.initialscreen.InitialViewModel
 import com.myapp.compose.main.MainViewModel
-import com.myapp.compose.main.SearchComponent
 import com.myapp.compose.ui.screens.bottomsheet.NewModalBottomSheet
 import com.myapp.compose.ui.screens.detail.DetailScreen
 import com.myapp.compose.ui.screens.learnings.LearningScreen
+import com.myapp.compose.ui.screens.restaurants.RestaurantScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
-    NavHost(navController= navController, startDestination= Screens.Home.route) {
-        composable(Screens.Home.route){
-            SearchComponent(viewModel = hiltViewModel<MainViewModel>(), navController)
+    NavHost(navController= navController, startDestination= Screens.Restaurant.route) {
+        composable(Screens.Restaurant.route){
+            RestaurantScreen(viewModel = hiltViewModel<MainViewModel>(), navController)
         }
 
         composable(Screens.Detail.route){
@@ -46,7 +46,7 @@ fun NavGraph() {
 fun onItemClick(navController: NavHostController, screen: Screens) {
     when(screen){
         Screens.Detail -> navController.navigate(Screens.Detail.route)
-        Screens.Home -> navController.navigate(Screens.Home.route)
+        Screens.Restaurant -> navController.navigate(Screens.Restaurant.route)
         Screens.InitialScreen -> navController.navigate(Screens.InitialScreen.route)
         Screens.Learnings -> navController.navigate(Screens.Learnings.route)
         Screens.NewModalBottomSheet -> navController.navigate(Screens.NewModalBottomSheet.route)
