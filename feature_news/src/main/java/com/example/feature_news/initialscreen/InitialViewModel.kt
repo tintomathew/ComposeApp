@@ -11,7 +11,6 @@ import javax.inject.Inject
 class InitialViewModel @Inject constructor(
    val stringResource: StringResource
 ) : ViewModel() {
-   fun getStringResource() {
-      Log.d("IN new module::","::"+stringResource.get(R.string.core))
+   fun getImageUrl(): String { return stringResource.get(R.string.image_url)
    }
 }

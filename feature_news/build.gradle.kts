@@ -65,6 +65,9 @@ dependencies {
     kapt ("com.google.dagger:hilt-android-compiler:2.52")
     implementation(project(":core"))
 
+    // Coil for Jetpack Compose
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
