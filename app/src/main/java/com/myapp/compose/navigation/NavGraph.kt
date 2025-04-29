@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.feature_news.initialscreen.InitialScreen
 import com.example.feature_news.initialscreen.InitialViewModel
 import com.myapp.compose.main.MainViewModel
-import com.myapp.compose.ui.screens.bottomsheet.NewModalBottomSheet
+import com.myapp.compose.ui.screens.dashboard.DashboardScreen
 import com.myapp.compose.ui.screens.detail.DetailScreen
 import com.myapp.compose.ui.screens.learnings.LearningScreen
 import com.myapp.compose.ui.screens.restaurants.RestaurantScreen
@@ -20,35 +20,34 @@ import com.myapp.compose.ui.screens.restaurants.RestaurantScreen
 @Composable
 fun NavGraph() {
     val navController = rememberNavController()
-    NavHost(navController= navController, startDestination= Screens.Restaurant.route) {
-        composable(Screens.Restaurant.route){
+    NavHost(navController = navController, startDestination = Screens.Dashboard.route) {
+        composable(Screens.Dashboard.route) {
+            DashboardScreen(navController)
+        }
+        composable(Screens.Restaurant.route) {
             RestaurantScreen(viewModel = hiltViewModel<MainViewModel>(), navController)
         }
 
-        composable(Screens.Detail.route){
+        composable(Screens.Detail.route) {
             DetailScreen(hiltViewModel<MainViewModel>(), navController)
         }
 
-        composable(Screens.Learnings.route){
+        composable(Screens.Learnings.route) {
             LearningScreen()
         }
 
-        composable(Screens.NewModalBottomSheet.route){
-            NewModalBottomSheet()
-        }
-
-        composable(Screens.InitialScreen.route){
-            InitialScreen(navController,  hiltViewModel<InitialViewModel>())
+        composable(Screens.InitialScreen.route) {
+            InitialScreen(navController, hiltViewModel<InitialViewModel>())
         }
     }
 }
 
 fun onItemClick(navController: NavHostController, screen: Screens) {
-    when(screen){
+    when (screen) {
+        Screens.Dashboard -> navController.navigate(Screens.Dashboard.route)
         Screens.Detail -> navController.navigate(Screens.Detail.route)
         Screens.Restaurant -> navController.navigate(Screens.Restaurant.route)
         Screens.InitialScreen -> navController.navigate(Screens.InitialScreen.route)
         Screens.Learnings -> navController.navigate(Screens.Learnings.route)
-        Screens.NewModalBottomSheet -> navController.navigate(Screens.NewModalBottomSheet.route)
     }
 }

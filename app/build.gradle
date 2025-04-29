@@ -89,10 +89,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
 
-    // Glide
-    implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
-    implementation("io.coil-kt:coil-compose:2.2.2")
-    implementation("io.coil-kt:coil-gif:2.2.2")
+    // Coil for Jetpack Compose
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // GIF support
+    implementation("io.coil-kt:coil-gif:2.5.0")
 
     // Screenshot testing
     screenshotTestImplementation 'androidx.compose.ui:ui-tooling'
