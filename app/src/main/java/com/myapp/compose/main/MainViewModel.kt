@@ -1,6 +1,9 @@
 package com.myapp.compose.main
 
 import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.myapp.compose.R
@@ -21,6 +24,14 @@ class MainViewModel @Inject constructor(val restaurantRepo: RestaurantRepo,
     private val _state = MutableStateFlow(emptyList<Restaurant>())
     val state: StateFlow<List<Restaurant>>
         get() = _state
+
+    var selectedRestaurant by mutableStateOf<Restaurant?>(null)
+        private set
+
+    fun selectRestaurant(restaurant: Restaurant) {
+        selectedRestaurant = restaurant
+    }
+
     fun getRestaurants(text: String) {
         viewModelScope.launch {
             restaurantRepo.getRestaurantDetails(text).data?.Restaurants?.let { item ->

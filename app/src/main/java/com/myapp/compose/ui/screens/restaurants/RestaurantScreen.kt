@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -22,7 +24,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.navigation.NavHostController
 import com.myapp.compose.R
@@ -32,19 +36,20 @@ import com.myapp.compose.navigation.onItemClick
 import com.myapp.compose.ui.views.RestaurantList
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RestaurantScreen(viewModel: MainViewModel, navController: NavHostController) {
 
     val state by viewModel.state.collectAsState()
     var text by remember { mutableStateOf(TextFieldValue("")) }
+    val focusManager = LocalFocusManager.current
 
     Scaffold() { contentPadding ->
         Column(
             Modifier
-            .background(Color.White)
-            .fillMaxSize()
-            .padding(contentPadding)) {
+                .background(Color.White)
+                .fillMaxSize()
+                .padding(contentPadding)
+        ) {
             TextField(
                 value = text,
                 onValueChange = {
@@ -61,10 +66,22 @@ fun RestaurantScreen(viewModel: MainViewModel, navController: NavHostController)
                     )
                 },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+                keyboardOptions = KeyboardOptions.Default.copy(
+                    imeAction = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        focusManager.clearFocus()  // Hides keyboard
+                    }
+                )
             )
             RestaurantList(
-                state
-            ) { onItemClick(navController, Screens.Restaurant) }
+                state,
+                onItemClick = {
+                    viewModel.selectRestaurant(it)
+                    onItemClick(navController, Screens.RestaurantDetails)
+                },
+            )
         }
     }
 }

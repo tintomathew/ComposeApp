@@ -4,4 +4,9 @@
     <string name="show_less">Show less</string>
     <string name="show_more">Show more</string>
     <string name="get_details">Get Details</string>
+    <string name="restaurant">Restaurant</string>
+    <string name="learnings">Learnings</string>
+    <string name="image_rendering">Image Rendering</string>
+    <string name="news_module">News Module</string>
+    <string name="modal_bottomsheet">Modal BottomSheet</string>
 </resources>

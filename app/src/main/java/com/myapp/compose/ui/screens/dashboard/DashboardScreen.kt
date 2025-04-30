@@ -19,9 +19,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.myapp.compose.R
 import com.myapp.compose.navigation.Screens
 import com.myapp.compose.navigation.onItemClick
 import com.myapp.compose.ui.screens.bottomsheet.BottomSheet
@@ -51,7 +53,7 @@ fun DashboardScreen(navHostController: NavHostController = NavHostController(Loc
                 onClick = {
                     onItemClick(navHostController, Screens.Restaurant)
                 }) {
-                Text("Restaurant")
+                Text(text = stringResource(R.string.restaurant))
             }
 
             Button(modifier = Modifier
@@ -61,7 +63,7 @@ fun DashboardScreen(navHostController: NavHostController = NavHostController(Loc
                 onClick = {
                     onItemClick(navHostController, Screens.Learnings)
                 }) {
-                Text("Learnings")
+                Text(stringResource(R.string.learnings))
             }
 
             Button(modifier = Modifier
@@ -71,7 +73,7 @@ fun DashboardScreen(navHostController: NavHostController = NavHostController(Loc
                 onClick = {
                     onItemClick(navHostController, Screens.Detail)
                 }) {
-                Text("Image Rendering")
+                Text(stringResource(R.string.image_rendering))
             }
 
             Button(modifier = Modifier
@@ -81,7 +83,7 @@ fun DashboardScreen(navHostController: NavHostController = NavHostController(Loc
                 onClick = {
                     onItemClick(navHostController, Screens.InitialScreen)
                 }) {
-                Text("News Module")
+                Text(stringResource(R.string.news_module))
             }
 
             Button(modifier = Modifier
@@ -91,7 +93,7 @@ fun DashboardScreen(navHostController: NavHostController = NavHostController(Loc
                 onClick = {
                     showSheet = true
                 }) {
-                Text("Modal BottomSheet")
+                Text(stringResource(R.string.modal_bottomsheet))
             }
         }
     }
